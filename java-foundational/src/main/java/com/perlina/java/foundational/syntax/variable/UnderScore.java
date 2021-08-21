@@ -8,7 +8,7 @@ package com.perlina.java.foundational.syntax.variable;
  */
 public class UnderScore {
     public static void main(String[] args) {
-//        long longVal = 100_000_000_0000L;
-//        System.out.println(longVal);
+        long longVal = 100_000_000_0000L;
+        System.out.println(longVal);
     }
 }
