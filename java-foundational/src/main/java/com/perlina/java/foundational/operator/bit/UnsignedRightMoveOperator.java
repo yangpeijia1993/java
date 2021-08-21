@@ -13,6 +13,7 @@ public class UnsignedRightMoveOperator {
 
         //正整数无符号右移
         System.out.println(188>>>2);
+
         /**
          * 计算过程：
          * 188：  0000 0000 0000 0000 0000 0000 1011 1100
