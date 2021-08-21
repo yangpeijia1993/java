@@ -20,7 +20,6 @@ public class UnsignedRightMoveOperator {
          * >>>2: 000000 0000 0000 0000 0000 0000 1011 11 00
          * 47
          */
-
         //负整数无符号右移
         System.out.println(-188>>>2);
         /**
