@@ -25,7 +25,7 @@ public class ArrayBinarySearch {
 
 
         while (start <= end){
-            int mid = start+ end/2;
+            int mid = (start+ end)/2;
             if (target > array[mid]){
                 start = mid+1;
             }else if(target< array[mid]){
