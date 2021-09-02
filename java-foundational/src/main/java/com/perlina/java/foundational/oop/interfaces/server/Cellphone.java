@@ -1,12 +1,14 @@
 package com.perlina.java.foundational.oop.interfaces.server;
 
+import java.util.Objects;
+
 /**
  * 手机类
  *
  * @author: Perlina
  * @version:2021/8/269:48 上午
  */
-public class Cellphone {
+public class Cellphone implements Comparable<Cellphone>{
 
     /**
      * 手机品牌
@@ -110,6 +112,9 @@ public class Cellphone {
      * @param weight
      */
     public void setWeight(Integer weight) {
+        if (weight<0 || weight>500){
+            throw new RuntimeException("重量异常");
+        }
         this.weight = weight;
     }
 
@@ -120,9 +125,13 @@ public class Cellphone {
         System.out.println("Cellphone的无参构造器"+this);
     }
 
+    public Cellphone(String model,Integer price){
+        this.model =model;
+        this.price = price;
+    }
 
     /**
-     * 全参构造器
+     * 4参构造器
      * @param brand
      * @param model
      * @param price
@@ -135,6 +144,20 @@ public class Cellphone {
         this.color = color;
     }
 
+    public Cellphone(String model, Integer price, Integer weight) {
+        this.model = model;
+        this.price = price;
+        this.weight = weight;
+    }
+
+    /**
+     * 全参构造器
+     * @param brand
+     * @param model
+     * @param price
+     * @param color
+     * @param weight
+     */
     public Cellphone(String brand, String model, Integer price, String color, Integer weight) {
         this.brand = brand;
         this.model = model;
@@ -152,5 +175,30 @@ public class Cellphone {
             ", color='" + color + '\'' +
             ", weight=" + weight +
             '}';
+    }
+
+    @Override
+    public int compareTo(Cellphone o) {
+        //价格降序
+        return o.getPrice()-this.getPrice();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Cellphone cellphone = (Cellphone) o;
+        return model.equals(cellphone.model) &&
+            price.equals(cellphone.price) &&
+            weight.equals(cellphone.weight);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(model, price, weight);
     }
 }
